@@ -1,0 +1,31 @@
+{
+  "name": "@phothinmg/julian-period",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Pho Thin Mg",
+    "email": "<phothinmg@disroot.org>",
+    "url": "https://phothinmg.github.io/"
+  },
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  },
+  "files": [
+    "dist/*",
+    "package.json",
+    "readme.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}
