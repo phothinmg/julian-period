@@ -1,19 +1,23 @@
 {
-  "name": "@phothinmg/julian-period",
+  "name": "@phothinmaung/julian-period",
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "check": "biome check src",
+    "lint": "biome check --write src",
+    "fmt": "biome format --write src"
   },
   "keywords": [],
   "author": {
     "name": "Pho Thin Mg",
-    "email": "<phothinmg@disroot.org>",
+    "email": "phothinmg@disroot.org",
     "url": "https://phothinmg.github.io/"
   },
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
     "@types/node": "^24.10.1",
     "typescript": "^5.9.3"
   },
@@ -27,5 +31,8 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
