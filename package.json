@@ -1,6 +1,6 @@
 {
   "name": "@phothinmaung/julian-period",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The utilities tools for working with JD , JDN and Astronomical Cycles: [Solar, Metonic (Lunar),Indiction]",
   "scripts": {
     "build": "tsx src/opt/build.ts",
