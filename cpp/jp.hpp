@@ -170,17 +170,17 @@ namespace jp
 
         return {julianDay, julianDayNumber};
     }
-    /// @brief Converts a Julian Day Number (JDN) to a Gregorian date with optional time components
-    /// @param jd Julian Day Number (JDN)
-    /// @return A Jd2Dt object containing the Gregorian date and optional time components of the input JDN
-    /// @details The algorithm used is Meeus', which is a fast and efficient method for converting between Julian Day Numbers and Gregorian dates.
-    /// The method first adjusts the input JDN to account for the Gregorian calendar's starting date of October 15, 1582.
-    /// It then uses the Meeus algorithm to compute the year, month, and day of the input JDN.
-    /// Finally, the method extracts any time components from the fractional day and normalizes them to ensure they are within valid ranges.
-    Jd2Dt jd_to_gregorian(double jd)
+    /// @brief Convert Julian Day (JD) to Gregorian calendar date (year, month, day, hour, minute, second)
+    /// @param jd Julian Day (JD) to convert
+    /// @param tz_offset Timezone offset in hours (default 0.0 means UT)
+    /// @return Jd2Dt structure containing year, month, day, hour, minute, and second of converted date
+    Jd2Dt jd_to_gregorian(double jd, double tz_offset = 0.0)
     {
-        // Convert Julian Day to calendar date (Meeus algorithm)
-        double jd_plus = jd + 0.5;
+        // Apply timezone offset (hours) to convert UT JD to local JD
+        double jd_local = jd + tz_offset / 24.0;
+
+        // Convert Julian Day to calendar date (Meeus algorithm) using local JD
+        double jd_plus = jd_local + 0.5;
         long Z = static_cast<long>(std::floor(jd_plus));
         double F = jd_plus - static_cast<double>(Z);
 
@@ -201,7 +201,7 @@ namespace jp
         int month = (E < 14) ? static_cast<int>(E - 1) : static_cast<int>(E - 13);
         int year = (month > 2) ? static_cast<int>(C - 4716) : static_cast<int>(C - 4715);
 
-        // Extract time from fractional day
+        // Extract time from fractional day (local time)
         double day_frac = day_decimal - static_cast<double>(day);
         double seconds_of_day = day_frac * 86400.0;
         int hour = static_cast<int>(seconds_of_day / 3600.0);

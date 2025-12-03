@@ -26,11 +26,35 @@ Import :
 import jp from "@phothinmaung/julian-period";
 ```
 
+### C++
 
-### C++ 
+#### Example C++ program
 
-**_Coming Soon_**
+Clone the repository :
 
+```text
+git clone https://github.com/phothinmg/julian-period.git
+cd julian-period
+```
+
+- **Build & Run With CMake (recommended)**
+
+```text
+mkdir build
+cd build
+cmake ..
+make
+./jpapp # Running example
+```
+
+- **Quick compile with g++**
+
+```text
+g++ -std=c++17 cpp/example/main.cpp -Ijp -o jpapp
+./jpapp
+```
+
+## API
 
 
 
