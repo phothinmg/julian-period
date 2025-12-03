@@ -28,6 +28,8 @@ import jp from "@phothinmaung/julian-period";
 
 ### C++
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/phothinmg/julian-period/cmake-multi-platform.yml?style=for-the-badge&logo=cmake&label=CMake%20on%20multiple%20platforms)
+
 #### Example C++ program
 
 Clone the repository :
@@ -55,9 +57,6 @@ g++ -std=c++17 cpp/example/main.cpp -Ijp -o jpapp
 ```
 
 ## API
-
-
-
 
 [thetkarit]: https://github.com/phothinmg/thetkarit
 [julian_period]: https://en.wikipedia.org/wiki/Julian_day#External_links:~:text=%5Bedit%5D-,Julian%20Period,-%5Bedit%5D
