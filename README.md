@@ -12,7 +12,7 @@ A small and zero-dependency library for working with Julian Day [[JD][jd]], Juli
 
 ### Node Js
 
-### Install and import
+#### Install and import
 
 Install :
 
