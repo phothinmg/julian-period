@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "The utilities tools for working with JD , JDN and Astronomical Cycles: [Solar, Metonic (Lunar),Indiction]",
   "scripts": {
-    "build": "tsc",
+    "build": "tsx src/opt/build.ts",
     "check": "biome check src",
     "lint": "biome check --write src",
     "fmt": "biome format --write src"
@@ -45,7 +45,8 @@
     }
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": {
     "type": "git",
