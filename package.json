@@ -24,7 +24,7 @@
   "files": [
     "dist/*",
     "package.json",
-    "readme.md"
+    "README.md"
   ],
   "exports": {
     ".": {
