@@ -96,7 +96,7 @@ interface GregorianDateTime {
 
 ## License
 
-[Apache-2.0][file-license] © [Pho Thin Maung][ptm]
+[ISC][file-license] © [Pho Thin Maung][ptm]
 
 <!--  -->
 
