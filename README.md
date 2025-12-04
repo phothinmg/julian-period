@@ -8,52 +8,100 @@ A small and zero-dependency library for working with [Julian Day][jd] , [Julian 
 
 ### Node Js
 
-#### Install and import
-
-Install :
+**Install :**
 
 ```bash
 npm i @phothinmaung/julian-period
 ```
 
-Import :
+**Import :**
 
 ```ts
 import jp from "@phothinmaung/julian-period";
+console.log(jp.solarNumber(2025));
 ```
 
-### C++
+OR
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/phothinmg/julian-period/cmake-multi-platform.yml?style=for-the-badge&logo=cmake&label=CMake%20on%20multiple%20platforms)
-
-#### Example C++ program
-
-Clone the repository :
-
-```text
-git clone https://github.com/phothinmg/julian-period.git
-cd julian-period
+```js
+const jp = require("@phothinmaung/julian-period");
+console.log(jp.solarNumber(2025));
 ```
 
-- **Build & Run With CMake (recommended)**
+### ESM Import
 
-```text
-mkdir build
-cd build
-cmake ..
-make
-./jpapp # Running example
+```js
+import julianPeriod from "https://esm.run/@phothinmaung/julian-period";
+const jp = julianPeriod.default;
+console.log(jp.solarNumber(2025));
 ```
 
-- **Quick compile with g++**
+### Browser
 
-```text
-g++ -std=c++17 cpp/example/main.cpp -Ijp -o jpapp
-./jpapp
+```html
+<script src="https://cdn.jsdelivr.net/npm/@phothinmaung/julian-period@0.1.1/cdn/julianPeriod.min.js"></script>
+```
+
+```html
+<script>
+  const ln = jp.solarNumber(2025);
+  console.log(ln);
+</script>
+```
+
+OR
+
+```html
+<script type="module">
+  import julianPeriod from "https://cdn.jsdelivr.net/npm/@phothinmaung/julian-period@0.1.1/+esm";
+  const jp = julianPeriod.default;
+  console.log(jp.solarNumber(2025));
+</script>
 ```
 
 ## API
 
+### Functions
+
+1. `jp.solarNumber(year:number):number`
+   Position of a year within the 28-year Solar Cycle (1..28)
+
+2. `jp.lunarNumber(year:number):number`
+   Position of a year within the 19-year Metonic (Lunar) cycle (1..19)
+
+3. `jp.indictionNumber(year:number):number`
+   Position of a year within the the 15-year Indiction cycle (1..15)
+
+4. `jp.julianPeriodYearNumber(year:number):number`
+   Compute position within the Julian Period (length 15*19*28 = 7980 years)
+
+5. `jp.gregorianToJD(date:GregorianDateTime):{julianDay: number, julianDayNumber: number}`
+   Computes the Julian Day Number (JDN) and Julian Day (JD) from a Gregorian date.
+
+6. `jp.jdToGregorian(jd: number): GregorianDateTime`
+   Converts a Julian Day Number (JDN) to a Gregorian date.
+
+### Types
+
+```ts
+interface GregorianDateTime {
+  year: number;
+  month: NumberInRange<1, 12>;
+  day: NumberInRange<1, 31>;
+  hour?: NumberInRange<0, 23>;
+  minute?: NumberInRange<0, 59>;
+  second?: NumberInRange<0, 59>;
+}
+```
+
+## License
+
+[Apache-2.0][file-license] © [Pho Thin Maung][ptm]
+
+<!--  -->
+
+[file-license]: LICENSE
+[ptm]: https://github.com/phothinmg
 [thetkarit]: https://github.com/phothinmg/thetkarit
 [julian_period]: https://en.wikipedia.org/wiki/Julian_day#External_links:~:text=%5Bedit%5D-,Julian%20Period,-%5Bedit%5D
 [solar_cycle]: https://en.wikipedia.org/wiki/Solar_cycle_/(calendar/)

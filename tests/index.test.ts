@@ -63,7 +63,20 @@ describe("Tests for Julian Period", () => {
   });
 });
 
-describe("Tests for conversion",()=>{
-    // All tests are as of UTC
-    
-})
+describe("Gregorian Date to JD and JDN", () => {
+  // All tests are as of UTC
+  it("Should convert a Gregorian date to Julian Day Number (JDN) and Julian Day (JD)", (t) => {
+    const inputDate: jp.GregorianDateTime = {
+      year: 2022,
+      month: 1,
+      day: 1,
+      hour: 12,
+      minute: 0,
+      second: 0,
+    };
+
+    const result = jp.gregorianToJD(inputDate);
+    t.assert.deepEqual(result.julianDay, 2459581);
+    t.assert.deepEqual(result.julianDayNumber, 2459581);
+  });
+});

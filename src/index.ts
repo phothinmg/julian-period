@@ -124,12 +124,15 @@ namespace jp {
     const combined = 6916 * ind0 + 4200 * lun0 + 4845 * sol0;
     return mod(combined, N) + 1;
   }
+
   /**
-   * Converts a Gregorian date to a Julian Day Number (JDN) and returns its Julian Day (JD) and Julian Day Number (JDN).
-   * @param {GregorianDateTime & { tzOffset?: number}} input - Gregorian date with optional timezone offset in hours
-   * @returns {{julianDay: number, julianDayNumber: number}} - Object with Julian Day (JD) and Julian Day Number (JDN) of the input date
-   * @throws {TypeError} - If year/month/day are not finite integers, or hour/minute/second are not finite numbers, or tzOffset is not a finite number in [-24,24].
-   * @throws {RangeError} - If month/day are not in [1,12] or [1,31] respectively, or hour/minute/second are not in [0,23], [0,59], [0,59] respectively.
+   * Computes the Julian Day Number (JDN) and Julian Day (JD) from a Gregorian date.
+   * The Julian Day Number is a count of days since noon November 16, 4713 BCE, in the Julian Period.
+   * The Julian Day is a count of days since noon January 1, 4713 BCE, in the Gregorian calendar.
+   * @param {{year: number, month: number, day: number, hour?: number, minute?: number, second?: number}} - Gregorian date components
+   * @returns {{julianDay: number, julianDayNumber: number}} - Object with Julian Day Number (JDN) and Julian Day (JD)
+   * @throws {RangeError} - If any of the date components are out of range
+   * @throws {TypeError} - If any of the date components are not of the expected type
    */
   export function gregorianToJD({
     year: inputYear,
@@ -209,6 +212,12 @@ namespace jp {
     return { julianDay, julianDayNumber: Math.floor(julianDay) };
   }
 
+  /**
+   * Converts a Julian Day Number (JDN) to a Gregorian date.
+   * @param {number} jd - Julian Day Number (JDN) to convert
+   * @returns {GregorianDateTime} - Object with Gregorian date components from the input JDN
+   * @throws {TypeError} - If jd is not a finite number
+   */
   export function jdToGregorian(jd: number): GregorianDateTime {
     if (!Number.isFinite(jd)) {
       throw new TypeError("jd must be a finite number");
