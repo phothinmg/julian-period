@@ -2,8 +2,6 @@
 
 ## Overview
 
-This is a part of the project [Thetkarit][thetkarit] , a dual-language library for Burmese calendar calculations and astronomical computations.
-
 A small and zero-dependency library for working with [Julian Day][jd] , [Julian Day Number][jdn] , [Solar cycle][solar_cycle] , [Lunar cycle (Metonic cycle)][lunar_cycle] , [Indiction cycle][indiction_cycle] , [Julian Period][julian_period] and design to handles historical date calculations.
 
 ## Use

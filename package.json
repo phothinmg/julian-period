@@ -3,10 +3,12 @@
   "version": "0.1.1",
   "description": "The utilities tools for working with JD , JDN and Astronomical Cycles: [Solar, Metonic (Lunar),Indiction]",
   "scripts": {
-    "build": "tsx src/opt/build.ts",
+    "build": "tsx opt/build.ts",
     "check": "biome check src",
     "lint": "biome check --write src",
-    "fmt": "biome format --write src"
+    "fmt": "biome format --write src",
+    "test": "tsx --test",
+    "lcov": "tsx --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info"
   },
   "keywords": [
     "julian-day",
